@@ -4,20 +4,18 @@ import "./../styles/App.css";
 const App = () => {
   const [name, setName] = useState("");
 
-  const handleInputChange = (e) => {
-    setName(e.target.value);
-  };
-
   return (
     <div>
       {/* Do not remove the main div */}
       <input
         type="text"
-        placeholder="Enter your name"
         value={name}
-        onChange={handleInputChange}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
       />
-      {name && <p>Hello, {name}!</p>}
+      {name !== "" && (
+        <p>Hello, {name}!</p>
+      )}
     </div>
   );
 };
